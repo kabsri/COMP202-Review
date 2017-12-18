@@ -5,6 +5,7 @@
  */
 import java.util.*;
 
+
 public class FinalReview{
 
 	public static void main(String[] args){
@@ -199,22 +200,6 @@ public class FinalReview{
 		print2DArray(arr);
 	}
 	
-	/*////////////////////////////////
-	 * OBJECT ORIENTED PROGRAMMING
-	 *////////////////////////////////
-	
-	//This method takes a shape object and figures out it's dimension
-	//See Shape class for details
-	public static double dimension(Shape s){
-		if (s.getType().equals(Shape.possibleTypes[0])){ //circle
-			return Math.sqrt(s.getArea()/Math.PI);
-		} else if (s.getType().equals(Shape.possibleTypes[1])){ //square
-			return Math.sqrt(s.getArea());
-		} else { //triangle
-			return Math.sqrt(s.getArea()*4/Math.sqrt(3));
-		}
-	}
-	
 	/*///////////////////////
 	 * EXCEPTION HANDLING
 	 *///////////////////////
@@ -400,17 +385,29 @@ public class FinalReview{
 	public static int Fib(int n) {
 		if (n<1)
 			throw new IllegalArgumentException("You entered a non positive number :(");
-		else if(n==1)
-			return 1;
-		else if(n==2)
+		else if(n==1||n==2)
 			return 1;
 		else
 			return Fib(n-1) + Fib(n-2);
 	}
 	
+
+	//A method that reverses an ArrayList of Integers
+	public static ArrayList<Integer> reverseArray(ArrayList<Integer> arr) {
+		if(arr.size()<=1)
+			return arr;
+		else {
+			int head = arr.remove(0);			//removes first element and stores it in head
+			arr = reverseArray(arr);
+			arr.add(head);
+			return arr;
+		}
+	}
+	
 	/*//////////////////////////
 	 * OTHER USEFUL METHODS
 	 *//////////////////////////
+	
 	//Method that converts any double value to negative (if it is not already)
 	public static double toNegative(double num){
 		if (num<0.0)
@@ -497,15 +494,4 @@ public class FinalReview{
 	     return max;
 	}
 	
-	//A method that reverses an ArrayList of Integers
-	public static ArrayList<Integer> reverseArray(ArrayList<Integer> arr) {
-		if(arr.size()<=1)
-			return arr;
-		else {
-			int head = arr.remove(0);			//removes first element and stores it in head
-			arr = reverseArray(arr);
-			arr.add(head);
-			return arr;
-		}
-	}
 }
