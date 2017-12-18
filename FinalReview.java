@@ -5,7 +5,6 @@
  */
 import java.util.*;
 
-
 public class FinalReview{
 
 	public static void main(String[] args){
@@ -192,6 +191,22 @@ public class FinalReview{
 			k=arr[k][k];
 		}
 		print2DArray(arr);
+	}
+	
+	/*////////////////////////////////
+	 * OBJECT ORIENTED PROGRAMMING
+	 *////////////////////////////////
+	
+	//This method takes a shape object and figures out it's dimension
+	//See Shape class for details
+	public static double dimension(Shape s){
+		if (s.getType().equals(Shape.possibleTypes[0])){ //circle
+			return Math.sqrt(s.getArea()/Math.PI);
+		} else if (s.getType().equals(Shape.possibleTypes[1])){ //square
+			return Math.sqrt(s.getArea());
+		} else { //triangle
+			return Math.sqrt(s.getArea()*4/Math.sqrt(3));
+		}
 	}
 	
 	/*///////////////////////
