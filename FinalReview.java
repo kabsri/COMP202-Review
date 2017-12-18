@@ -20,6 +20,9 @@ public class FinalReview{
 		System.out.println("REVERSED ARRAYLIST:");
 		System.out.println(reverseArray(arr2));
 		
+		System.out.println();
+		print2DArray(multiarrays1());
+		
 	}
 	
 	/*//////////
@@ -169,13 +172,16 @@ public class FinalReview{
 	}
 	
 	//What are the values of arr by the end of this method?
-	public static void multiarrays1(){
+	public static int[][] multiarrays1(){
 		int[][] arr = new int[3][];
 		int[] a = {1, 3};
 		arr[0] = a;
 		arr[1] = new int[5];
 		arr[2] = arr[1];
 		arr[1][2] = 1;
+		arr[2][3] = 3;
+		
+		return arr;
 	}
 	
 	
