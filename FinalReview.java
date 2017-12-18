@@ -3,20 +3,17 @@
  * @author Kabilan Sriranjan and Taha Salman
  *
  */
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class FinalReview{
 
 	public static void main(String[] args){
 		
-		//int[][] arr2 = {{1,4,4}, {9,2}, null, {5,1,7,6}};
+		int[][] a2 = {{1,4,4}, {9,2}, {1}, {5,1,7,6}};
 		//exception3();
-		
+		arraylist2();
 		//System.out.println(Fib(2));
-		
 		ArrayList<Integer> arr2 = new ArrayList<Integer>();
 		arr2 = populateArr(arr2,10);
 		System.out.println("ORIGINAL ARRAYLIST:");
@@ -26,9 +23,112 @@ public class FinalReview{
 		
 	}
 	
-	/*///////////////////////////////
-	 * MULTI-DIMENSIONAL ARRAYS
-	 *///////////////////////////////
+	/*//////////
+	 * LOOPS
+	 *//////////
+	
+	//What will be printed after this code runs?
+	public static void loops1(){
+		int i=0;
+		for (int k=0; i<5; i++){
+			System.out.print(k+i+"i");
+			k+=2;
+			if (k%4>1){
+				k++;
+				System.out.print('\n');
+			}
+		}
+	}
+	
+	//What will be printed after this code runs?
+	public static void loops2(){
+		int c=100;
+		for (int i=4; i>0; i--){
+			if (i==1){
+				while (c>95){
+					c--;
+				}
+			} else if (i==2){
+				while (c>10){
+					c-=2;
+				}
+			} else if (i==0) {
+				while (c>0){
+					c = c-1;
+				}
+			}
+		}
+		System.out.println(c);
+	}
+	
+	//What will be printed after this code runs?
+	public static void loops3(){
+		for (int i=0; i<3; i++){
+			for (int j=0; j<2; j++){
+				while (j<i){
+					System.out.println("hi");
+				}
+			}
+		}
+	}
+	
+	/*////////////
+	 * ARRAYS
+	 *////////////
+	
+	//What does the following method do?
+	public static void arrays1(int[] arr){
+		int n = arr.length-1;
+		for (int i=0; i<=n; i++){
+			arr[i] = arr[n-i];
+		}
+	}
+	
+	//What does the following method do?
+	public static void arrays2(int[] arr){
+		for (int i=1; i<arr.length; i++){
+			arr[i-1] = arr[i];
+		}
+	}
+	
+	//What does the following method do?
+	public static void arrays3(int[] arr){
+		for (int i=0; i<arr.length-1; i++){
+			arr[i] = arr[i+1];
+		}
+	}
+	
+	//A method that prints out all the entries of a 2D array of type int
+	public static void print2DArray(int[][] arr){
+		for (int i=0; i<arr.length; i++){
+			for (int j=0; j<arr[i].length; j++){
+				System.out.print(arr[i][j]+" ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+		
+	//A method that prints out all the entries of a 2D array of type double
+	public static void print2DArray(double[][] arr){
+		for (int i=0; i<arr.length; i++){
+			for (int j=0; j<arr[i].length; j++){
+				System.out.print(arr[i][j]+" ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+		
+	//A method that increments each entry of a 2D array by a given amount of type int
+	public static int[][] inc2D(int[][] arr, int x) {
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				arr[i][j]+=x;
+			}
+		}
+		return arr;
+	}
 	
 	//isRectangular takes a 2D array of doubles and checks whether the array is rectangular
 	public static boolean isRectangular(double[][] arr){
@@ -69,41 +169,8 @@ public class FinalReview{
 		return null;
 	}
 	
-	//A method that prints out all the entries of a 2D array of type int
-	public static void print2DArray(int[][] arr){
-		for (int i=0; i<arr.length; i++){
-			for (int j=0; j<arr[i].length; j++){
-				System.out.print(arr[i][j]+" ");
-			}
-			System.out.println();
-		}
-		System.out.println();
-	}
-	
-	//A method that prints out all the entries of a 2D array of type double
-	public static void print2DArray(double[][] arr){
-		for (int i=0; i<arr.length; i++){
-			for (int j=0; j<arr[i].length; j++){
-				System.out.print(arr[i][j]+" ");
-			}
-			System.out.println();
-		}
-		System.out.println();
-	}
-	
-	//A method that increments each entry of a 2D array by a given amount of type int
-	public static int[][] inc2D(int[][] arr, int x) {
-		for(int i=0;i<arr.length;i++) {
-			for(int j=0;j<arr[i].length;j++) {
-				arr[i][j]+=x;
-			}
-		}
-		return arr;
-	}
-	
-	
 	//What are the values of arr by the end of this method?
-	public static void arrays1(){
+	public static void multiarrays1(){
 		int[][] arr = new int[3][];
 		int[] a = {1, 3};
 		arr[0] = a;
@@ -113,8 +180,18 @@ public class FinalReview{
 	}
 	
 	
-	public static void arrays2(){
-		
+	public static void multiarrays2(){
+		int[][] arr = {{1,0,9,4,4},
+					   {2,2,2},
+					   {1,4,3,1,4,2},
+					   {2,3,1,5,2,0}};
+		print2DArray(arr);
+		int k=1;
+		for (int i=0; i<3; i++){
+			arr[k][i] = arr[i][k];
+			k=arr[k][k];
+		}
+		print2DArray(arr);
 	}
 	
 	/*///////////////////////
@@ -141,7 +218,7 @@ public class FinalReview{
 		}
 	}
 	
-	//Here we call errorCode() and if an error gets thrown, we propagate the error to where we called handler2()
+	//Here we call errorCode() and if an error gets thrown, we propagate the error to wherever we called handler2()
 	public static void handler2(int n) throws IllegalArgumentException{
 		System.out.println(errorCode(n));
 	}
@@ -188,7 +265,7 @@ public class FinalReview{
 				}
 			} catch (InputMismatchException e){
 				System.out.println("Not an integer");
-				sc.nextLine();
+				sc.nextLine(); //If they entered a string when we expected an int we should use sc.nextLine() to "reset" the cursor of the scanner
 			}
 		}
 		System.out.println("You entered: "+x);
@@ -199,7 +276,7 @@ public class FinalReview{
 	 *//////////////////
 	
 	//A method to populate an empty Arraylist with ints from 1 to n
-	public static ArrayList populateArr(ArrayList<Integer> arr,int n) {
+	public static ArrayList<Integer> populateArr(ArrayList<Integer> arr,int n) {
 		for(int i=0;i<n;i++) {
 			arr.add(i, i+1);
 		}
@@ -233,7 +310,7 @@ public class FinalReview{
 		integers.add(5);
 		integers.set(integers.indexOf(5), 2);
 		integers.add(integers.indexOf(2), 5);
-		integers.set(integers.indexOf(5), integers.get(integers.indexOf(2)+1));
+		integers.set(integers.indexOf(5), integers.get(integers.indexOf(2)+2));
 		System.out.println(integers);
 	}
 	
@@ -400,7 +477,7 @@ public class FinalReview{
 	}
 	
 	//A method that reverses an ArrayList of Integers
-	public static ArrayList reverseArray(ArrayList<Integer> arr) {
+	public static ArrayList<Integer> reverseArray(ArrayList<Integer> arr) {
 		if(arr.size()<=1)
 			return arr;
 		else {
