@@ -1,3 +1,8 @@
+/**COMP 202 FALL 2017 FINAL REVIEW 
+ * 
+ * @author Kabilan Sriranjan and Taha Salman
+ *
+ */
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -7,8 +12,17 @@ public class FinalReview{
 
 	public static void main(String[] args){
 		
-		int[][] arr = {{1,4,4}, {9,2}, null, {5,1,7,6}};
-		exception3();
+		//int[][] arr2 = {{1,4,4}, {9,2}, null, {5,1,7,6}};
+		//exception3();
+		
+		//System.out.println(Fib(2));
+		
+		ArrayList<Integer> arr2 = new ArrayList<Integer>();
+		arr2 = populateArr(arr2,10);
+		System.out.println("ORIGINAL ARRAYLIST:");
+		System.out.println(arr2);
+		System.out.println("REVERSED ARRAYLIST:");
+		System.out.println(reverseArray(arr2));
 		
 	}
 	
@@ -54,6 +68,39 @@ public class FinalReview{
 		}
 		return null;
 	}
+	
+	//A method that prints out all the entries of a 2D array of type int
+	public static void print2DArray(int[][] arr){
+		for (int i=0; i<arr.length; i++){
+			for (int j=0; j<arr[i].length; j++){
+				System.out.print(arr[i][j]+" ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+	
+	//A method that prints out all the entries of a 2D array of type double
+	public static void print2DArray(double[][] arr){
+		for (int i=0; i<arr.length; i++){
+			for (int j=0; j<arr[i].length; j++){
+				System.out.print(arr[i][j]+" ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+	
+	//A method that increments each entry of a 2D array by a given amount of type int
+	public static int[][] inc2D(int[][] arr, int x) {
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				arr[i][j]+=x;
+			}
+		}
+		return arr;
+	}
+	
 	
 	//What are the values of arr by the end of this method?
 	public static void arrays1(){
@@ -151,6 +198,15 @@ public class FinalReview{
 	 * ARRAYLISTS
 	 *//////////////////
 	
+	//A method to populate an empty Arraylist with ints from 1 to n
+	public static ArrayList populateArr(ArrayList<Integer> arr,int n) {
+		for(int i=0;i<n;i++) {
+			arr.add(i, i+1);
+		}
+		return arr;
+	}
+	
+	
 	//What prints after this method is run?
 	public static void arraylist1(){
 		ArrayList<Double> numbers = new ArrayList<Double>();
@@ -241,26 +297,117 @@ public class FinalReview{
 		return conj(arr, 0);
 	}
 	
+	
+	//A method that returns the nth Fibonnaci number
+	public static int Fib(int n) {
+		if (n<1)
+			throw new IllegalArgumentException("You entered a non positive number :(");
+		else if(n==1)
+			return 1;
+		else if(n==2)
+			return 1;
+		else
+			return Fib(n-1) + Fib(n-2);
+	}
+	
 	/*//////////////////////////
 	 * OTHER USEFUL METHODS
 	 *//////////////////////////
-	public static void print2DArray(int[][] arr){
-		for (int i=0; i<arr.length; i++){
-			for (int j=0; j<arr[i].length; j++){
-				System.out.print(arr[i][j]+" ");
-			}
-			System.out.println();
-		}
-		System.out.println();
+	//Method that converts any double value to negative (if it is not already)
+	public static double toNegative(double num){
+		if (num<0.0)
+			return num;
+		else
+			return -1.0*num;
 	}
 	
-	public static void print2DArray(double[][] arr){
-		for (int i=0; i<arr.length; i++){
-			for (int j=0; j<arr[i].length; j++){
-				System.out.print(arr[i][j]+" ");
-			}
-			System.out.println();
+	//method that finds out if an int is a multiple of another
+	public static boolean multipleOf(int x, int y){
+		return x%y==0;
+	}
+	
+	//method that converts a decimal number to binary
+	public static String toBinary(int num){
+		String binNum = "";
+		while (num>0){
+			binNum = num%2 + binNum;
+			num = num/2;
 		}
-		System.out.println();
+		return binNum;
+	}
+	
+	
+	//method that converts a binary number to decimal
+	public static int toDecimal(String binNum){
+		int decNum = 0;
+		for (int i=binNum.length()-1; i>=0; i--){
+			if (binNum.charAt(i)=='1')
+				decNum = decNum + (int)Math.pow(2, i);
+		}
+		return decNum;
+	}
+	
+	//method that repeats a string n times
+	public static String repeat(String word, int n){
+		String repeatedWord = "";
+		for (int i=0; i<n; i++){
+			repeatedWord = repeatedWord + word;
+		}
+		return repeatedWord;
+	}
+	
+	
+	/**The following are useful methods for arrays (you can modify them to do more specific tasks)
+	 * ARRAY METHODS
+	 **/
+	
+	//A method that prints all array elements where array is of type int
+	public static void printIntArray(int [] arr) {
+		int l = arr.length;
+		
+		for(int i=0;i<l;i++) {
+			System.out.print(arr[i]+" ");
+		}
+	}
+	
+	//A method that prints all array elements where array is of type String
+	public static void printStringArray(String [] arr) {
+			int l = arr.length;
+			
+			for(int i=0;i<l;i++) {
+				System.out.print(arr[i]+" ");
+			}
+		}
+
+	//A method that sums up all of the elements in an int array
+	public static int sumIntArray(int [] arr) {
+		int sum=0;
+		int l=arr.length;
+		for(int i=0;i<l;i++) {
+			sum+=arr[i];
+		}
+		return sum;
+	}
+	
+	//A method that returns the largest element in an int array
+	public static int findMax(int[] arr) {
+		int max = arr[0];
+	    for (int i = 1; i < arr.length; i++) {
+	         if (arr[i] > max) 
+	        	 max = arr[i];
+	     }
+	     return max;
+	}
+	
+	//A method that reverses an ArrayList of Integers
+	public static ArrayList reverseArray(ArrayList<Integer> arr) {
+		if(arr.size()<=1)
+			return arr;
+		else {
+			int head = arr.remove(0);			//removes first element and stores it in head
+			arr = reverseArray(arr);
+			arr.add(head);
+			return arr;
+		}
 	}
 }
